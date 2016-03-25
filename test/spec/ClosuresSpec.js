@@ -36,7 +36,7 @@ describe('closures', function () {
 		})
 	})
 
-	describe('codeLove', function () {
+/*	describe('codeLove', function () {
 		it('should exist', function () {
 			expect(codeLove).toBeDefined();
 		})
@@ -96,7 +96,7 @@ describe('fnCounter', function () {
 		expect(count()).toBe('STOP')
 	})
 	})
-
+*/
 describe('funcArray', function () {
 	it('should exist', function () {
 		expect(funcArray).toBeDefined();

@@ -11,12 +11,13 @@ var outer = function(){
 // Above you're given a function that returns another function which has a closure over the name variable.
 // Invoke outer saving the return value into another variable called 'inner'.
 
-  //Code Here
+  //Code Here  
+  var inner = outer();
 
 //Once you do that, invoke inner.
 
   //Code Here
-
+  inner();
 
 
 //Next problem
@@ -35,7 +36,8 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
-
+var call = callFriend();
+call(435-215-9248);
 
 
 //Next Problem
@@ -44,9 +46,16 @@ var callFriend = function(){
 
 /*
   Write a function called makeCounter that makes the following code work properly.
-*/
+*/ 
 
   //Code Here
+  function makeCounter() {
+      var start = 0;
+      return function addToStart(number) {
+          return start += 1;
+      }
+  }
+  
   var count = makeCounter();
   count(); // 1
   count(); // 2
@@ -66,7 +75,15 @@ var callFriend = function(){
 
 function counterFactory(value) {
   return {
-
+         inc: function() {
+             return value +=1;
+         },
+          dec: function() {
+              return value -=1;
+          }   
+     }
+       
+    
     // Code inc function
     // Code dec function
 
@@ -91,9 +108,11 @@ counter.dec(); // 10
     var welcomeText = 'Your doing awesome keep it up    ';
 
     // code message function here
-
+        function message() {
+            return welcomeText + " " + firstname + " " + lastname;
+        }
     return message()
-
+        
   }
 
   motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
@@ -112,54 +131,39 @@ counter.dec(); // 10
     };
 
     var privateMethod = function(){
-      return welcomeText + firstname + '  ' + lastname;
+      return "Hi my name is " + person.name + '  ' + person.age;
     };
 
     // Anything that is being returned is made public and can be invoked from outside our lexical scope
 
     return {
-      // Code here
+      publicMethod: function() {
+          return privateMethod();
+      }
     };
 
   })();
 
   module.publicMethod();
-
-
-
-
+//Uncomment this after you create your public method
+//   module.publicMethod();
 // Here we have a for loop that will iterate as long as i is less than or equal to 5. What we need to do is console.log(i)
 // So that it logs ( 1 then 2 then 3, etc). Run this code in your console to see what the output is.
-
-
   for (var i = 0; i <= 5; i++) {
     setTimeout(function() {
       console.log(i)
     }, i * 1000)
   }
-
-
   // To make this code work you will need to create a new scope for every iteration.
 
-
-
-
-
-
-
-
-
-/*
-  Make the following code work
-
+  //Make the following code work
+  var funcArray = [function zero(){return funcArray.indexOf(zero)}, function one(){return funcArray.indexOf(one)},
+  function two(){return funcArray.indexOf(two)}, function three(){return funcArray.indexOf(three)},
+  function four(){return funcArray.indexOf(four)}, function five(){return funcArray.indexOf(five)}];
   funcArray[0]() //0
   funcArray[1]() //1
   funcArray[2]() //2
   funcArray[3]() //3
   funcArray[4]() //4
   funcArray[5]() //5
-
-  *Hint: Don't let this fool you. Break down what's really happening here.
-*/
-
-
+  //Hint: Don't let this fool you. Break down what's really happening here.
